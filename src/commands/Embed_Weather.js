@@ -14,11 +14,13 @@ module.exports = {
     async execute(interaction) {
         const { options } = interaction;
         const city = options.getString('city');
-        const weather = await Get_Weather(city);
+        const capitalized_city = city.charAt(0).toUpperCase() + city.slice(1);
+        const apiResponse = await Get_Weather(city);
+        const weather = apiResponse.current.temperature;
         const embed = new EmbedBuilder()
         .setColor("Purple")
         .setTitle(`Weather in ${city}`)
-        .setDescription(`${city} is currently ${weather}°C`)
+        .setDescription(`${capitalized_city} is currently ${weather}°C`)
         .setTimestamp()
 
     

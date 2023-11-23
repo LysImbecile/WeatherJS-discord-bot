@@ -15,11 +15,13 @@ const params = {
     try {
         const response = await axios.get('http://api.weatherstack.com/current', {params});
         const apiResponse = response.data;
-        return apiResponse.current.temperature;
+        return apiResponse;
+        
     } catch (error) {
         console.log(error);
     }
 }
 
+Get_Weather('New York');
 
 module.exports = { Get_Weather };
