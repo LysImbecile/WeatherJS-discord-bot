@@ -3,8 +3,6 @@ const axios = require('axios');
 const api_token = process.env.API_TOKEN;
 
 
-
-
 async function Get_Weather(city) {
 
 const params = {
@@ -22,6 +20,5 @@ const params = {
     }
 }
 
-Get_Weather('New York');
 
 module.exports = { Get_Weather };
