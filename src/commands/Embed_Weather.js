@@ -27,7 +27,10 @@ module.exports = {
         const weather_description = apiResponse.current.weather_descriptions;
         const weather_icon = apiResponse.current.weather_icons;
         const weather = apiResponse.current.temperature;
-        const umidity = apiResponse.current.umidity;
+        const humidity = apiResponse.current.humidity;
+        const feels_like = apiResponse.current.feelslike;
+        const wind_speed = apiResponse.current.wind_speed;
+        const local_timezone = apiResponse.location.localtime;
         
         if (medition === 'F' || medition === 'f') {
             medition_type = '°F';
@@ -38,8 +41,11 @@ module.exports = {
             .setImage("https://github.com/kitsunebishi/Wallpapers/blob/main/images/00239.jpg?raw=true")
             .setTitle(`Weather in ${capitalized_city}`)
             .setDescription(` ${country} - [${region}] ${capitalized_city} is currently ${weather} ${medition_type}`)
-            .addFields({name: "Weather description", value: String(weather_description)})
-            .addFields({name: "Umidity", value: String(umidity)})
+            .addFields({name: "Local time", value: String(local_timezone)},
+            {name: "Weather description", value: String(weather_description)})
+            .addFields({name: "Humidity", value: String(humidity + '%'), inline: true},
+            {name: "Feels like", value: String(feels_like + medition_type), inline: true},
+            {name: "Wind speed", value: String(wind_speed + 'km/h'), inline: true})
             .setTimestamp()
 
         await interaction.reply({embeds: [embed]});
