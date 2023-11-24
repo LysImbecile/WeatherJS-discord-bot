@@ -28,7 +28,7 @@ module.exports = {
         const weather_icon = apiResponse.current.weather_icons;
         const weather = apiResponse.current.temperature;
         
-        if (medition === 'F') {
+        if (medition === 'F' || medition === 'f') {
             medition_type = '°F';
         }
         const embed = new EmbedBuilder()
