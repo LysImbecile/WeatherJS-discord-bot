@@ -34,6 +34,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Built With
 
+- [WeatherStack API](https://weatherstack.com/) - API used at this project
 - [Node.js](https://nodejs.org/) - The web framework used
 - [Discord.js](https://discord.js.org/) - Discord API library
 
